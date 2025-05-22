@@ -1,3 +1,4 @@
+import React from "react";
 import { StatusBar, StyleSheet, Text, View } from "react-native";
 
 // evita que o conteúdo do cabeçalho seja sobreposto pela barra de status do dispositivo
@@ -5,11 +6,11 @@ const statusBarHeight = StatusBar.currentHeight
   ? StatusBar.currentHeight + 22
   : 64;
 
-export default function Header() {
+export default function Header({ title }: { title: string }) {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Nome App</Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
     </View>
   );
@@ -33,5 +34,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#fff",
     fontWeight: "bold",
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
